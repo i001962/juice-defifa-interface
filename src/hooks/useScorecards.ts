@@ -31,15 +31,18 @@ export function useScorecards(gameId: number) {
   const { chainData } = useChainData();
   const graphUrl = chainData.subgraph;
 
-  return useQuery(["scorecards", gameId], async () => {
-    const res = await request<{ scorecards: Scorecard[] }>(
-      graphUrl,
-      scorecardsQuery,
-      {
-        gameId,
-      }
-    );
+  return useQuery({
+    queryKey: ["scorecards", gameId],
+    queryFn: async () => {
+      const res = await request<{ scorecards: Scorecard[] }>(
+        graphUrl,
+        scorecardsQuery,
+        {
+          gameId,
+        }
+      );
 
-    return res.scorecards;
+      return res.scorecards;
+    },
   });
 }

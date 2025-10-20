@@ -1,3 +1,10 @@
+// ============================================================================
+// BACKUP: Original goerli.ts configuration (Juicebox v3)
+// ============================================================================
+// This file is kept for reference during the migration from v3 to v5
+// The active configuration is now in sepolia.ts using juice-sdk-core
+// ============================================================================
+
 import DefifaDeployment from "@ballkidz/defifa-collection-deployer/broadcast/Deploy.s.sol/5/run-latest.json";
 import DefifaDelegate from "@ballkidz/defifa-collection-deployer/out/DefifaDelegate.sol/DefifaDelegate.json";
 import DefifaDeployer from "@ballkidz/defifa-collection-deployer/out/DefifaDeployer.sol/DefifaDeployer.json";
@@ -9,12 +16,13 @@ import JBETHPaymentTerminal from "@jbx-protocol/juice-contracts-v3/deployments/g
 import JBProjects from "@jbx-protocol/juice-contracts-v3/deployments/goerli/JBProjects.json";
 import JBSingleTokenPaymentTerminalStore from "@jbx-protocol/juice-contracts-v3/deployments/goerli/JBSingleTokenPaymentTerminalStore.json";
 import { addressFor, ForgeDeploy } from "forge-run-parser";
-import { chain } from "wagmi";
+import { goerli } from "wagmi/chains";
 import { DefifaConfig } from "./types";
 import { EthereumAddress } from "types/defifa";
 
-export const DEFIFA_CONFIG_GOERLI: DefifaConfig = {
-  chainId: chain.goerli.id,
+// ORIGINAL GOERLI CONFIG (v3) - KEPT FOR REFERENCE
+export const DEFIFA_CONFIG_GOERLI_BACKUP: DefifaConfig = {
+  chainId: goerli.id,
 
   JBProjects: {
     address: JBProjects.address as EthereumAddress,
@@ -55,4 +63,4 @@ export const DEFIFA_CONFIG_GOERLI: DefifaConfig = {
     "https://api.thegraph.com/subgraphs/name/tomquirk/defifa-subgrap-hosted",
 };
 
-console.info("goerli chain data::", DEFIFA_CONFIG_GOERLI);
+console.info("goerli chain data (backup)::", DEFIFA_CONFIG_GOERLI_BACKUP);

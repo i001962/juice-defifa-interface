@@ -12,10 +12,8 @@ import ArcadeLoad from "./TurnOn";
 
 function GameButton({ game }: { game: any }) {
   return (
-    <Link href={`/game/${game.gameId}`}>
-      <a className="px-6 py-1 border-r border-neutral-800 max-w-[130px] overflow-hidden overflow-ellipsis shrink-0 whitespace-nowrap">
-        {game.name ?? game.gameId}
-      </a>
+    <Link href={`/game/${game.gameId}`} className="px-6 py-1 border-r border-neutral-800 max-w-[130px] overflow-hidden overflow-ellipsis shrink-0 whitespace-nowrap">
+      {game.name ?? game.gameId}
     </Link>
   );
 }
@@ -49,11 +47,9 @@ const ArcadeWrapper = () => {
               />
             </Link>
             <div className="flex gap-6 items-center">
-              <Link href="/about">
-                <a className="flex items-center gap-2 text-neutral-300 text-sm">
-                  <QuestionMarkCircleIcon className="h-4 w-4 inline" /> How it
-                  works
-                </a>
+              <Link href="/about" className="flex items-center gap-2 text-neutral-300 text-sm">
+                <QuestionMarkCircleIcon className="h-4 w-4 inline" /> How it
+                works
               </Link>
               <Wallet />
             </div>

@@ -1,7 +1,7 @@
 import { useGameContext } from "contexts/GameContext";
 import request, { gql } from "graphql-request";
 import { useChainData } from "hooks/useChainData";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 
 // BROKEN TODO
@@ -33,15 +33,13 @@ export function useGameActivity() {
   } = useChainData();
   const { gameId } = useGameContext();
 
-  return useQuery(
-    ["gameActivity", gameId],
-    () => {
+  return useQuery({
+    queryKey: ["gameActivity", gameId],
+    queryFn: () => {
       return request(subgraph, query, {
         gameId: gameId.toString(),
       });
     },
-    {
-      enabled: !!gameId,
-    }
-  );
+    enabled: !!gameId,
+  });
 }

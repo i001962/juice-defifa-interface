@@ -61,13 +61,19 @@ export const GameRow: FC<{ game: Game }> = ({ game }) => {
   const { data: currentPhase } = useCurrentGamePhase(gameId);
 
   return (
-    <Link href={`/game/${gameId}`}>
-      <tr className="text-sm cursor-pointer hover:font-semibold">
-        <td className="whitespace-nowrap py-4 pl-4 pr-3">{gameId}</td>
-        <td className="whitespace-nowrap py-4 pl-4 pr-3">
+    <tr className="text-sm cursor-pointer hover:font-semibold">
+      <td className="whitespace-nowrap py-4 pl-4 pr-3">
+        <Link href={`/game/${gameId}`} className="block">
+          {gameId}
+        </Link>
+      </td>
+      <td className="whitespace-nowrap py-4 pl-4 pr-3">
+        <Link href={`/game/${gameId}`} className="block">
           <span>{name}</span>
-        </td>
-        <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+        </Link>
+      </td>
+      <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+        <Link href={`/game/${gameId}`} className="block">
           {currentPhase === DefifaGamePhase.MINT ? (
             <span>{`Mint until ${date.toLocaleString()}`}</span>
           ) : currentPhase === DefifaGamePhase.NO_CONTEST_INEVITABLE ? (
@@ -77,15 +83,19 @@ export const GameRow: FC<{ game: Game }> = ({ game }) => {
           ) : (
             <span>{phaseText(currentPhase)}</span>
           )}
-        </td>
+        </Link>
+      </td>
 
-        <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+      <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+        <Link href={`/game/${gameId}`} className="block">
           <span>{fromWad4(treasuryAmount)} Ξ</span>
-        </td>
-        <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+        </Link>
+      </td>
+      <td className="whitespace-nowrap py-4 pl-4 pr-3 hidden md:table-cell">
+        <Link href={`/game/${gameId}`} className="block">
           {availableActionsText(currentPhase)}
-        </td>
-      </tr>
-    </Link>
+        </Link>
+      </td>
+    </tr>
   );
 };

@@ -109,8 +109,8 @@ const Explanation = () => {
           of players, developers, and supporters, and the treasury ensures a
           sustainable ecosystem where players have a say in the governance and
           growth of Defifa. See{" "}
-          <Link href="https://juicebox.money/@defifa" passHref>
-            <a className="underline hover:font-bold">Defifa's Juicebox</a>
+          <Link href="https://juicebox.money/@defifa" className="underline hover:font-bold">
+            Defifa's Juicebox
           </Link>{" "}
           to learn more.
         </p>
@@ -120,8 +120,8 @@ const Explanation = () => {
         </p>
         <p className="my-4" style={{ textIndent: 50 }}>
           Defifa is built by a{" "}
-          <Link href="https://discord.gg/hrZnvs65Nh" passHref>
-            <a className="underline hover:font-bold">community DAO</a>
+          <Link href="https://discord.gg/hrZnvs65Nh" className="underline hover:font-bold">
+            community DAO
           </Link>
           . Defifa games take place onchain, making them independent,
           transparent, and uncensorable. Nobody can delete or modify your game.
@@ -134,8 +134,8 @@ const Explanation = () => {
           This website interacts with the Ethereum blockchain – to use it,
           you'll need to have a wallet and some ETH (the main currency on
           Ethereum). You can get a wallet on{" "}
-          <Link href="https://metamask.io/" passHref>
-            <a className="underline hover:font-bold">metamask.io</a>
+          <Link href="https://metamask.io/" className="underline hover:font-bold">
+            metamask.io
           </Link>{" "}
           and buy ETH within the wallet using a credit card.
         </p>

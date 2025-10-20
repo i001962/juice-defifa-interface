@@ -1,7 +1,7 @@
 import axios from "axios";
 import { JUICEBOX_PROJECT_METADATA_DOMAIN } from "constants/constants";
 import { useChainData } from "hooks/useChainData";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { DefifaProjectMetadata } from "types/defifa";
 import { getIpfsUrl } from "utils/ipfs";
 import { useContractRead } from "wagmi";
@@ -17,9 +17,9 @@ export function useGameMetadata(projectId: number) {
     chainId: chainData.chainId,
   });
 
-  return useQuery(
-    ["metadata", metadataCid],
-    async () => {
+  return useQuery({
+    queryKey: ["metadata", metadataCid],
+    queryFn: async () => {
       if (!metadataCid || typeof metadataCid !== "string") return;
 
       const res = await axios.get<DefifaProjectMetadata>(
@@ -27,8 +27,6 @@ export function useGameMetadata(projectId: number) {
       );
       return res.data;
     },
-    {
-      enabled: !!metadataCid,
-    }
-  );
+    enabled: !!metadataCid,
+  });
 }

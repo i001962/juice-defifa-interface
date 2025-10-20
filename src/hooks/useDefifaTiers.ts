@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BigNumber } from "ethers";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { DefifaTier } from "types/defifa";
 import { JB721Tier } from "types/juicebox";
 import { cidFromIpfsUri, getIpfsUrl } from "utils/ipfs";

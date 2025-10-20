@@ -10,9 +10,7 @@ const Info = () => {
     <div className="flex flex-col md:flex-row justify-between w-full items-center">
       <div className="flex gap-8 items-center">
         <Link href="/">
-          <a>
-            <Logo />
-          </a>
+          <Logo />
         </Link>
 
         <Socials />

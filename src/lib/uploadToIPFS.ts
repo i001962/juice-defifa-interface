@@ -1,13 +1,22 @@
 import { create } from "ipfs-http-client";
-// TODO: Move this to a .env file and add it to .gitignore
-const projectId = "2NdpbtprhXeb7h0SvsLPnX19Z00";
-const projectSecret = "3477ef4dc95aeb5da2903d62e535d05c";
+
+// IPFS configuration from environment variables
+const projectId = process.env.IPFS_PROJECT_ID;
+const projectSecret = process.env.IPFS_PROJECT_SECRET;
+const host = process.env.IPFS_GATEWAY_HOST || "ipfs.infura.io";
+const port = parseInt(process.env.IPFS_GATEWAY_PORT || "5001");
+const protocol = process.env.IPFS_GATEWAY_PROTOCOL || "https";
+
+if (!projectId || !projectSecret) {
+  throw new Error("IPFS_PROJECT_ID and IPFS_PROJECT_SECRET environment variables are required");
+}
+
 const authorization = "Basic " + btoa(projectId + ":" + projectSecret);
 
 const ipfs = create({
-  host: "ipfs.infura.io",
-  port: 5001,
-  protocol: "https",
+  host,
+  port,
+  protocol,
   headers: {
     authorization: authorization,
   },

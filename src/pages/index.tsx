@@ -256,10 +256,8 @@ const HomePage = () => {
           </div>
         </div>
         <div className="text-center mt-8">
-          <Link href="/about">
-            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
-              Learn how to play
-            </button>
+          <Link href="/about" className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded inline-block">
+            Learn how to play
           </Link>
         </div>
 
@@ -284,10 +282,8 @@ const HomePage = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Link href="/">
-            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
-              Game Creator Zone (soon)
-            </button>
+          <Link href="/" className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded inline-block">
+            Game Creator Zone (soon)
           </Link>
         </div>
         <div className="container mx-auto">
@@ -304,10 +300,8 @@ const HomePage = () => {
           </div>
         </div>
         <div className="text-center mt-8 mb-8">
-          <Link href="/">
-            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
-              Create a game (soon)
-            </button>
+          <Link href="/" className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded inline-block">
+            Create a game (soon)
           </Link>
         </div>
       </main>
