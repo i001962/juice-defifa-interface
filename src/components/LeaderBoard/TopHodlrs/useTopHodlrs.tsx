@@ -19,9 +19,18 @@ export function useTopHodlrs() {
   } = useChainData();
 
   return useQuery({
-    queryKey: ["topHodlrs"],
-    queryFn: () => {
-      return request(subgraph, query);
+    queryKey: ["topHodlrs", subgraph],
+    queryFn: async () => {
+      if (!subgraph) {
+        throw new Error("No subgraph endpoint configured");
+      }
+      console.log("🔍 useTopHodlrs: Querying subgraph:", subgraph);
+      const result = await request(subgraph, query);
+      console.log("🔍 useTopHodlrs: Query result:", result);
+      return result;
     },
+    enabled: !!subgraph,
+    staleTime: 30 * 1000, // 30 seconds
+    refetchInterval: 60 * 1000, // 1 minute
   });
 }

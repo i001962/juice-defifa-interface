@@ -68,15 +68,20 @@ function ActivityItem({
 }
 
 export function TopHoldrsContent() {
-  const { data: owners, isLoading } = useTopHodlrs();
+  const { data: owners, isLoading, error } = useTopHodlrs();
   const leaders = (owners as { owners?: any })?.owners;
 
   if (isLoading) {
-    return <Container className="text-center">...</Container>;
+    return <Container className="text-center">Loading top hodlrs...</Container>;
   }
 
-  if (!leaders) {
-    return <Container className="text-center">No leaders yet.</Container>;
+  if (error) {
+    console.error("TopHoldrsContent error:", error);
+    return <Container className="text-center text-red-400">Error loading top hodlrs: {error.message}</Container>;
+  }
+
+  if (!leaders || leaders.length === 0) {
+    return <Container className="text-center">No hodlrs yet.</Container>;
   }
 
   const reformattedArray: ActivityEvent[] = leaders.map(

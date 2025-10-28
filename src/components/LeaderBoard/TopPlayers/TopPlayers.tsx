@@ -69,15 +69,20 @@ function ActivityItem({
 }
 
 export function TopPlayersContent() {
-  const { data: owners, isLoading } = useTopPlayers();
+  const { data: owners, isLoading, error } = useTopPlayers();
   const leaders = (owners as { owners?: any })?.owners;
 
   if (isLoading) {
-    return <Container className="text-center">...</Container>;
+    return <Container className="text-center">Loading top players...</Container>;
   }
 
-  if (!leaders) {
-    return <Container className="text-center">No leaders yet.</Container>;
+  if (error) {
+    console.error("TopPlayersContent error:", error);
+    return <Container className="text-center text-red-400">Error loading top players: {error.message}</Container>;
+  }
+
+  if (!leaders || leaders.length === 0) {
+    return <Container className="text-center">No players yet.</Container>;
   }
 
   const reformattedArray: ActivityEvent[] = leaders.map(

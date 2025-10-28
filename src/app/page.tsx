@@ -198,7 +198,7 @@ const HomePage = () => {
     <main>
       <Container>
         <Navbar />
-        <div className="pt- pb-52 px-10 text-center">
+        <div className="pt-24  pb-52 px-10 text-center">
           <h1 className="text-5xl md:text-7xl font-medium text-center !leading-snug">
             Money Games With Friends
           </h1>
