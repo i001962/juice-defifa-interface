@@ -37,6 +37,8 @@ const nextConfig = {
         hostname: "*.cloudflare-ipfs.com",
       },
     ],
+    // Disable image optimization to avoid Vercel issues with IPFS
+    unoptimized: true,
   },
 };
 
