@@ -112,10 +112,20 @@ export function useDefifaTiers(tiers: JB721Tier[], nftAddress?: string) {
                         : metadata.image)
                     : "";
                   
+                  const contractName = (tier as any).name;
+                  const metadataTierName = metadata.tierName;
+                  const finalTeamName = contractName || metadataTierName;
+                  
+                  console.log(`🔍 Tier ${tier.id} naming:`, {
+                    contractName,
+                    metadataTierName,
+                    finalTeamName
+                  });
+                  
                   return {
                     id: Number(tier.id),
-                    description: metadata.description || (tier as any).name,
-                    teamName: (tier as any).name || metadata.tierName,
+                    description: metadata.description || contractName,
+                    teamName: finalTeamName,
                     teamImage: teamImage,
                     maxSupply: maxSupply,
                     price: BigInt(tier.price.toString()),
