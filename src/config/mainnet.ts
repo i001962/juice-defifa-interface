@@ -1,7 +1,8 @@
-import DefifaDelegate from "../../../defifa-collection-deployer-v5/out/DefifaDelegate.sol/DefifaDelegate.json";
-import DefifaDeployer from "../../../defifa-collection-deployer-v5/out/DefifaDeployer.sol/DefifaDeployer.json";
-import DefifaGovernor from "../../../defifa-collection-deployer-v5/out/DefifaGovernor.sol/DefifaGovernor.json";
-import DefifaTokenUriResolver from "../../../defifa-collection-deployer-v5/out/DefifaTokenUriResolver.sol/DefifaTokenUriResolver.json";
+// Import ABIs from shared ABI files (same across all chains)
+import DefifaDelegate from "../abis/DefifaDelegate.json";
+import DefifaDeployer from "../abis/DefifaDeployer.json";
+import DefifaGovernor from "../abis/DefifaGovernor.json";
+import DefifaTokenUriResolver from "../abis/DefifaTokenUriResolver.json";
 import { mainnet } from "viem/chains";
 import { DefifaConfig } from "./types";
 import { EthereumAddress } from "types/defifa";
