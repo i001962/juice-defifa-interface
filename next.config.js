@@ -20,6 +20,22 @@ const nextConfig = {
         protocol: "https",
         hostname: "gateway.pinata.cloud",
       },
+      {
+        protocol: "https",
+        hostname: "jbm.infura-ipfs.io",
+      },
+      {
+        protocol: "https",
+        hostname: "*.infura-ipfs.io",
+      },
+      {
+        protocol: "https",
+        hostname: "cloudflare-ipfs.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.cloudflare-ipfs.com",
+      },
     ],
   },
 };
